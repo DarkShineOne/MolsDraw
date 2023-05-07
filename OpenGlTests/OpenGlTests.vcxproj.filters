@@ -42,7 +42,7 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="executor.cpp">
+    <ClCompile Include="Executor.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="imgui_impl_glfw_gl3.cpp">
@@ -60,7 +60,7 @@
     <ClCompile Include="interfaceM.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="atomiclib.cpp">
+    <ClCompile Include="AtomicLib.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

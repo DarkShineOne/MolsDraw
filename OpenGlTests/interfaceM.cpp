@@ -49,55 +49,75 @@ void interfaceM::gui(std::string atom1)
 	ImGui::SetCursorPos({ 43.f,170.f });
 	if (ImGui::Button("distance", { 61.f,19.f }))
 	{
+		try {
 		if (buffer1[0] && buffer2[0] && buffer1[0] != ' ') {
 			float c = distances(stoi(buffer1), stoi(buffer2));
 			sprintf_s(result1, "%f", c);
+		}
+		}
+		catch (exception e) {
+			;
 		}
 	}
 	ImGui::SetCursorPos({ 42.f,205.f });
 	if (ImGui::Button("angle", { 57.f,19.f }))
 	{
-		if (buffer1[0] && buffer2[0] && buffer3[0] && buffer1[0] != ' ') {
-			float a = angle(stoi(buffer1), stoi(buffer2), stoi(buffer3));
-			sprintf_s(result2, "%f", a);
+		try {
+			if (buffer1[0] && buffer2[0] && buffer3[0] && buffer1[0] != ' ') {
+				float a = angle(stoi(buffer1), stoi(buffer2), stoi(buffer3));
+				sprintf_s(result2, "%f", a);
+			}
+		}
+		catch (exception e) {
+			;
 		}
 	}
 	ImGui::SetCursorPos({ 42.f,240.f });
 	if (ImGui::Button("torsion", { 57.f,19.f }))
 	{
-		if (buffer1[0] && buffer2[0] && buffer3[0] && buffer4[0] && buffer1[0] != ' ') {
+		try {
+		{
 			float b = torsion(stoi(buffer1), stoi(buffer2), stoi(buffer3), stoi(buffer4));
 			sprintf_s(result3, "%f", b);
+		}
+		}
+		catch (exception e) {
+			;
 		}
 	}
 	ImGui::SetCursorPos({ 42.f,310.f });
 	if (ImGui::Button("bonds", { 57.f,19.f }))
 	{
-		if (buffer1[0] && buffer1[0] != ' ') {
-			std::string temp;
-			temp = bond(stoi(buffer1));
-			for (int i = 0; i != temp.size(); i++) {
-				cout << temp[i];
-				buffer[i] = temp[i];
+		try {
+			{
+				std::string temp;
+				temp = bond(stoi(buffer1));
+				for (int i = 0; i != temp.size(); i++) {
+					cout << temp[i];
+					buffer[i] = temp[i];
+				}
+				cout << buffer << endl;
 			}
-			cout << buffer << endl;
+		}
+		catch (exception e) {
+			;
 		}
 	}
 	ImGui::SetCursorPos({ 23.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("a1", buffer1, 255);
+	ImGui::InputText("", buffer1, 255);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 98.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("a2", buffer2, 255);
+	ImGui::InputText("", buffer2, 255);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 248.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("a4", buffer4, 255);
+	ImGui::InputText("", buffer4, 255);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 173.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("a3", buffer3, 255);
+	ImGui::InputText("", buffer3, 255);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 116.f,310.f });
 	ImGui::PushItemWidth(220.000000);
@@ -107,13 +127,13 @@ void interfaceM::gui(std::string atom1)
 	ImGui::SetCursorPos({ 33.f,355.f });
 	if (ImGui::Button("Load File", { 76.f,19.f }))
 	{
-		if (filename) {
+		if (strlen(filename) != 0) {
 			cout << (const char*)filename << endl;
 
 #ifdef _WIN32  //defining windows os
 			load((const char*)filename);
 #else
-			load((const char*)filename);
+			load((const char*)filename); // not using cause install'on prog on Linux is shit 
 #endif
 			calc_bonds();
 			if (bonds.empty()) fileloaded = false;
@@ -152,14 +172,17 @@ void interfaceM::gui(std::string atom1)
 		ImGui::SliderFloat("Radius", &Radius, 5, 60);
 		ImGui::PopItemWidth();
 	}
-	ImGui::SetCursorPos({ 33.f,550.f });
+	ImGui::SetCursorPos({ 33.f,540.f });
 	if (ImGui::Button("Exit", { 76.f,19.f }))
 	{
 		exit(0);
 	}
+	ImGui::SetCursorPos({ 35.f,570.f });
+	ImGui::PushItemWidth(287.000000);
+	ImGui::Text("After loading the file press CapsLock to display.");
 	ImGui::SetCursorPos({ 35.f,600.f });
 	ImGui::PushItemWidth(287.000000);
-	ImGui::Text("CapsLock for lock/unlock advance control. ");
+	ImGui::Text("CapsLock for lock/unlock for override control.");
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 35.f,630.f });
 	ImGui::PushItemWidth(259.000000);

@@ -20,7 +20,7 @@
 #include "interfaceM.h"
 #include "imgui.h"
 #include "imgui_impl_glfw_gl3.h"
-#include "atomiclib.h"
+#include "AtomicLib.h"
 
 extern ifstream opened_file;
 float positions[9000];

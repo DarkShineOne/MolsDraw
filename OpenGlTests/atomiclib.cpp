@@ -1,4 +1,4 @@
-#include "atomiclib.h"
+#include "AtomicLib.h"
 
 
 void done()
@@ -18,7 +18,7 @@ void load_atoms() {
 		stringstream s{ temp_s };
 		s >> fd;
 		s >> val;
-		if (fd == "ATOM" | fd == "HETATM") {
+		if (fd == "ATOM" || fd == "HETATM") {
 			while (s >> fd) {
 				buff.push_back(fd);
 			}
@@ -43,7 +43,7 @@ void load_atoms() {
 	//string f = global_direct;
 	//f.erase(f.end() - 4, f.end());
 	//f += ".atom";
-	string f = "atomslist.txt";
+	string f = "atomslist.data";
 	file.open(f);
 	for (const auto& i : bonds) { //printing atoms in file 
 		file << i.number << " ";
@@ -147,7 +147,7 @@ void calc_bonds() {
 	bonds = calc_it(bonds); //calc it!
 
 	ofstream file; //file of sorted atoms
-	file.open("atoms.txt");
+	file.open("atoms.data");
 
 	for (const auto& i : bonds) {
 		for (const auto& j : i.bond) {

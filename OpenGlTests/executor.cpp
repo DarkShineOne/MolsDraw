@@ -10,7 +10,7 @@ executor::executor() {
 float* executor::DataToVertex(float *positions)
 {
 	std::ifstream f;
-	f.open("atomslist.txt");
+	f.open("atomslist.data");
 	int num;
 	float x, y, z;
 	std::cout << vertices_vector.size() << std::endl;
@@ -59,7 +59,7 @@ unsigned int* executor::DataToIndices(unsigned int*indices)
 {
 
 	std::ifstream file;
-	file.open("atoms.txt");
+	file.open("atoms.data");
 	int temp0;
 	int temp1;
 	unsigned int b = 0;

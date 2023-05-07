@@ -4,5 +4,4 @@ Works only on Visual Studio platform. Attempting to build for Linux leads to hea
 
 There is a small issue related to vertex selection, related to paralax.
 
-
-![Alt text](https://github.com/DarkShineOne/MolsDraw/blob/master/example.png "Example")
+You can see what it looks like in example.png

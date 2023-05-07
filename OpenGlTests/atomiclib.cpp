@@ -1,4 +1,4 @@
-#include "atomiclib.h"
+#include "AtomicLib.h"
 
 
 void done()
@@ -18,7 +18,7 @@ void load_atoms() {
 		stringstream s{ temp_s };
 		s >> fd;
 		s >> val;
-		if (fd == "ATOM" | fd == "HETATM") {
+		if (fd == "ATOM" || fd == "HETATM") {
 			while (s >> fd) {
 				buff.push_back(fd);
 			}

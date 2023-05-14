@@ -73,24 +73,24 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\imgui;$(SolutionDir)\OpenGlTests\Libraries\zlib;$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\OpenGlTests\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\imgui;$(SolutionDir)\OpenGlTests\Libraries\zlib;$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\OpenGlTests\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\imgui;$(SolutionDir)\OpenGlTests\Libraries\zlib;$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\OpenGlTests\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\OpenGlTests\Libraries\imgui;$(SolutionDir)\OpenGlTests\Libraries\zlib;$(SolutionDir)\OpenGlTests\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\OpenGlTests\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -165,12 +165,12 @@
     <ClCompile Include="AtomicLib.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Executor.cpp" />
-    <ClCompile Include="imgui.cpp" />
-    <ClCompile Include="imgui_demo.cpp" />
-    <ClCompile Include="imgui_draw.cpp" />
-    <ClCompile Include="imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="interfaceM.cpp" />
+    <ClCompile Include="Libraries\imgui\imgui.cpp" />
+    <ClCompile Include="Libraries\imgui\imgui_demo.cpp" />
+    <ClCompile Include="Libraries\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Libraries\imgui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -179,22 +179,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="basic.shader" />
+    <None Include="Libraries\imgui\imgui.ini" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="atomiclib.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="executor.h" />
-    <ClInclude Include="imconfig.h" />
-    <ClInclude Include="imgui.h" />
-    <ClInclude Include="imgui_impl_glfw_gl3.h" />
-    <ClInclude Include="imgui_internal.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="interfaceM.h" />
+    <ClInclude Include="Libraries\imgui\imconfig.h" />
+    <ClInclude Include="Libraries\imgui\imgui.h" />
+    <ClInclude Include="Libraries\imgui\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="Libraries\imgui\imgui_internal.h" />
+    <ClInclude Include="Libraries\imgui\stb_rect_pack.h" />
+    <ClInclude Include="Libraries\imgui\stb_textedit.h" />
+    <ClInclude Include="Libraries\imgui\stb_truetype.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="stb_rect_pack.h" />
-    <ClInclude Include="stb_textedit.h" />
-    <ClInclude Include="stb_truetype.h" />
     <ClInclude Include="VertexArray.h" />
     <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="VertexBufferLayout.h" />

@@ -9,22 +9,24 @@ float Azimut = 0.;
 float Polar = 0.;
 float Radius = 0.;
 
+static char result0[255] = "";
+static char result1[255] = "";
+static char result2[255] = "";
+static char result3[255] = "";
+static char buffer[255] = "";
+static char buffer1[255] = "";
+static char buffer2[255] = "";
+static char buffer3[255] = "";
+static char buffer4[255] = "";
+static char filename[128] = "";
+
 interfaceM::interfaceM()
 {
 }
 
 void interfaceM::gui(std::string atom1)
 {
-	static char result0[64] = "";
-	static char result1[64] = "";
-	static char result2[64] = "";
-	static char result3[64] = "";
-	static char buffer[128] = "";
-	static char buffer1[64] = "";
-	static char buffer2[64] = "";
-	static char buffer3[64] = "";
-	static char buffer4[64] = "";
-	static char filename[128] = "";
+
 	for (int i = 0; i != atom1.size(); i++) {
 		if (index == 0) {buffer1[i] = atom1[i];}
 		if (index == 1) {buffer2[i] = atom1[i];}
@@ -105,24 +107,24 @@ void interfaceM::gui(std::string atom1)
 	}
 	ImGui::SetCursorPos({ 23.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("", buffer1, 255);
+	ImGui::InputText("1", buffer1, 64);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 98.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("", buffer2, 255);
+	ImGui::InputText("2", buffer2, 64);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 248.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("", buffer4, 255);
+	ImGui::InputText("4", buffer4, 64);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 173.f,90.f });
 	ImGui::PushItemWidth(65.000000);
-	ImGui::InputText("", buffer3, 255);
+	ImGui::InputText("3", buffer3, 64);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 116.f,310.f });
 	ImGui::PushItemWidth(220.000000);
 
-	ImGui::InputText("", buffer, 255);
+	ImGui::InputText("b", buffer, 255);
 	ImGui::PopItemWidth();
 	ImGui::SetCursorPos({ 33.f,355.f });
 	if (ImGui::Button("Load File", { 76.f,19.f }))
